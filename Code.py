@@ -45,8 +45,10 @@ data[['Day', 'Time of Day']] = data['Time'].str.split(' ', n=1, expand=True)
 data = data.drop(['Date','Time','Day','Time of Day'], axis=1)
 data.head()
 
+data_clean = data.sample(frac=0.5)
 #Saving the cleaned dataset so we can use it for the dashboard
-data.to_csv('clean_chicago',sep=',',index=False,encoding='utf-8')
+data_clean.to_csv('clean_chicago_new',sep=',',index=False,encoding='utf-8')
+
 
 #Since we are focusing on different types of crimes, lets check all the different types
 data['Primary Type'].unique()
